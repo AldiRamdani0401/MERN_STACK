@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const UserList = () => {
 
@@ -17,6 +18,7 @@ const UserList = () => {
     return (
         <div className="columns">
             <div className="columns is-half">
+                <Link to="add" className='button is-success'>Add New</Link>
                 <table className='table is-striped is-fullwidth mt-5'>
                     <thead>
                         <tr>
@@ -35,7 +37,7 @@ const UserList = () => {
                                 <td>{user.email}</td>
                                 <td>{user.gender}</td>
                                 <td>
-                                    <button className="button is-info is-small">Edit</button>
+                                    <Link to={`edit/${user._id}`} className="button is-info is-small">Edit</Link>
                                     <button className="button is-danger is-small">Delete</button>
                                 </td>
                             </tr>
