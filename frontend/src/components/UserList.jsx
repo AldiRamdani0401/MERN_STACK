@@ -11,6 +11,15 @@ const UserList = () => {
         setUser(response.data);
     }
 
+    const deleteUser = async (id) => {
+        try {
+            await axios.delete(`http://localhost:5000/users/${id}`);
+            getUsers();
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     useEffect(() => {
         getUsers();
     }, []);
@@ -38,7 +47,7 @@ const UserList = () => {
                                 <td>{user.gender}</td>
                                 <td>
                                     <Link to={`edit/${user._id}`} className="button is-info is-small">Edit</Link>
-                                    <button className="button is-danger is-small">Delete</button>
+                                    <button onClick={() => deleteUser(user._id)} className="button is-danger is-small">Delete</button>
                                 </td>
                             </tr>
                         ))}
