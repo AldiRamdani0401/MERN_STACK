@@ -1,3 +1,4 @@
+### Get All Data users
 GET http://localhost:5000/Users
 
 
@@ -12,4 +13,14 @@ Content-Type: application/json
     "name" : "Ramdani",
     "email" : "ramdani@gmail.com",
     "gender": "Male"
+}
+
+### Update user
+PATCH  http://localhost:5000/Users/645a6338688cadf4577d3bd8
+Content-Type: application/json
+
+{
+    "name" : "Ramdani updated",
+    "email" : "ramdani@gmail.com",
+    "gender": "Male updated"
 }
